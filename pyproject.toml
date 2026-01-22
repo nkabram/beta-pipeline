@@ -1,0 +1,24 @@
+[project]
+name = "deep-research-pipeline"
+version = "0.1.0"
+description = "Orchestration pipeline for deep medical research across multiple AI research tools"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.10.0",
+    "pydantic-ai>=0.0.30",
+    "typer>=0.15.0",
+    "rich>=13.0.0",
+    "pyyaml>=6.0.0",
+    "aiofiles>=24.0.0",
+    "httpx>=0.28.0",
+]
+
+[project.scripts]
+pipeline = "deep_research_pipeline.main:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+]

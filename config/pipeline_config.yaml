@@ -1,0 +1,57 @@
+# Deep Research Pipeline Configuration
+# This file can be used to override default settings
+
+# Base output directory for research results
+base_output_dir: "reports"
+
+# Research app directories (absolute paths)
+app_directories:
+  open_deep_research: "D:/research/open_deep_research"
+  openai_deep_research: "D:/research/openai_deep_research"
+  claude_deep_research: "D:/research/claude-deep-research"
+  beta_research: "D:/research/beta_research"
+
+# Execution settings
+execution:
+  timeout_seconds: 3600  # 1 hour max per app
+  parallel_execution: true
+  max_workers: 3
+
+# Specialization settings (which app handles what)
+# This implements the "smart orchestration" strategy
+specialization:
+  # Primary source for foundation + clinical context
+  foundation_app: "open_deep_research"
+
+  # Primary source for demographics (MOST IMPORTANT)
+  demographics_app: "openai_deep_research"
+
+  # Primary source for synthesis and gap analysis
+  synthesis_app: "claude_deep_research"
+
+# Fallback settings
+fallbacks:
+  enabled: true
+  # If primary app fails, try these in order
+  foundation_fallback:
+    - "openai_deep_research"
+    - "claude_deep_research"
+  demographics_fallback:
+    - "open_deep_research"
+    - "claude_deep_research"
+  synthesis_fallback:
+    - "openai_deep_research"
+    - "open_deep_research"
+
+# Beta research integration
+beta_research:
+  enabled: true
+  include_local_resources: true
+  # Template generation settings
+  medical_templates: 18  # 9 ages x 2 sexes
+  trauma_templates: 8    # 4 groups x 2 sexes
+
+# Logging
+logging:
+  level: "INFO"
+  format: "rich"  # or "plain"
