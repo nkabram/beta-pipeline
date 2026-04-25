@@ -43,3 +43,24 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+
+# HQ governance files — managed by the HQ governance repo, not this code repo.
+# See: hq-spec/docs/decisions/012_hq-governance-differential-git.md
+# Added by /promote-to-production on 2026-04-25
+PROJECT_STATUS.md
+AREA_STATUS.md
+PORTFOLIO_STATUS.md
+STATUS.md
+MEMORY.md
+AGENTS.md
+CLAUDE.md
+CODEX.md
+.hq-root
+.claude/
+.hq/
+.nexus/
+_tasks/
+inbox/
+logs/
+ai-workspace/
+docs/decisions/
